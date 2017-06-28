@@ -44,11 +44,15 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.pnametxt = new System.Windows.Forms.TextBox();
             this.pcodetxt = new System.Windows.Forms.TextBox();
+            this.Exitbttn = new System.Windows.Forms.Button();
             this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.pcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.product = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Endtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pricetxt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -68,13 +72,14 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Remove,
+            this.pcode,
             this.product,
             this.quantity,
             this.price,
             this.Endtotal});
             this.dataGridView1.Location = new System.Drawing.Point(31, 258);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(588, 144);
+            this.dataGridView1.Size = new System.Drawing.Size(762, 140);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
@@ -120,7 +125,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(421, 171);
+            this.label2.Location = new System.Drawing.Point(565, 173);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 10;
@@ -128,9 +133,9 @@
             // 
             // quantitytxt
             // 
-            this.quantitytxt.Location = new System.Drawing.Point(470, 168);
+            this.quantitytxt.Location = new System.Drawing.Point(617, 168);
             this.quantitytxt.Name = "quantitytxt";
-            this.quantitytxt.Size = new System.Drawing.Size(111, 20);
+            this.quantitytxt.Size = new System.Drawing.Size(100, 20);
             this.quantitytxt.TabIndex = 11;
             this.quantitytxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.quantitytxt.TextChanged += new System.EventHandler(this.quantitytxt_TextChanged);
@@ -138,7 +143,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(229, 170);
+            this.label3.Location = new System.Drawing.Point(215, 170);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 13);
             this.label3.TabIndex = 12;
@@ -147,7 +152,7 @@
             // Discount
             // 
             this.Discount.AutoSize = true;
-            this.Discount.Location = new System.Drawing.Point(590, 171);
+            this.Discount.Location = new System.Drawing.Point(723, 173);
             this.Discount.Name = "Discount";
             this.Discount.Size = new System.Drawing.Size(49, 13);
             this.Discount.TabIndex = 14;
@@ -155,9 +160,9 @@
             // 
             // dscnttxt
             // 
-            this.dscnttxt.Location = new System.Drawing.Point(642, 168);
+            this.dscnttxt.Location = new System.Drawing.Point(778, 169);
             this.dscnttxt.Name = "dscnttxt";
-            this.dscnttxt.Size = new System.Drawing.Size(92, 20);
+            this.dscnttxt.Size = new System.Drawing.Size(94, 20);
             this.dscnttxt.TabIndex = 15;
             this.dscnttxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.dscnttxt.TextChanged += new System.EventHandler(this.dscnttxt_TextChanged);
@@ -174,9 +179,9 @@
             // 
             // RMVALLBttn
             // 
-            this.RMVALLBttn.Location = new System.Drawing.Point(637, 258);
+            this.RMVALLBttn.Location = new System.Drawing.Point(804, 258);
             this.RMVALLBttn.Name = "RMVALLBttn";
-            this.RMVALLBttn.Size = new System.Drawing.Size(97, 32);
+            this.RMVALLBttn.Size = new System.Drawing.Size(68, 38);
             this.RMVALLBttn.TabIndex = 17;
             this.RMVALLBttn.Text = "REMOVE ALL";
             this.RMVALLBttn.UseVisualStyleBackColor = true;
@@ -187,22 +192,24 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(31, 12);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(703, 149);
+            this.dataGridView2.Size = new System.Drawing.Size(841, 149);
             this.dataGridView2.TabIndex = 18;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.dataGridView2.SelectionChanged += new System.EventHandler(this.dataGridView2_SelectionChanged);
             // 
             // pnametxt
             // 
             this.pnametxt.Location = new System.Drawing.Point(109, 168);
             this.pnametxt.Name = "pnametxt";
-            this.pnametxt.Size = new System.Drawing.Size(103, 20);
+            this.pnametxt.Size = new System.Drawing.Size(100, 20);
             this.pnametxt.TabIndex = 19;
+            this.pnametxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.pnametxt.TextChanged += new System.EventHandler(this.pnametxt_TextChanged);
             this.pnametxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pnametxt_KeyPress);
             // 
             // pcodetxt
             // 
-            this.pcodetxt.Location = new System.Drawing.Point(306, 167);
+            this.pcodetxt.Location = new System.Drawing.Point(292, 169);
             this.pcodetxt.Name = "pcodetxt";
             this.pcodetxt.Size = new System.Drawing.Size(104, 20);
             this.pcodetxt.TabIndex = 20;
@@ -210,12 +217,27 @@
             this.pcodetxt.TextChanged += new System.EventHandler(this.pcodetxt_TextChanged);
             this.pcodetxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pcodetxt_KeyPress);
             // 
+            // Exitbttn
+            // 
+            this.Exitbttn.Location = new System.Drawing.Point(804, 428);
+            this.Exitbttn.Name = "Exitbttn";
+            this.Exitbttn.Size = new System.Drawing.Size(68, 25);
+            this.Exitbttn.TabIndex = 21;
+            this.Exitbttn.Text = "Exit";
+            this.Exitbttn.UseVisualStyleBackColor = true;
+            this.Exitbttn.Click += new System.EventHandler(this.Exitbttn_Click);
+            // 
             // Remove
             // 
             this.Remove.HeaderText = "Remove";
             this.Remove.Name = "Remove";
             this.Remove.Text = "Remove";
             this.Remove.UseColumnTextForButtonValue = true;
+            // 
+            // pcode
+            // 
+            this.pcode.HeaderText = "prodcut_code";
+            this.pcode.Name = "pcode";
             // 
             // product
             // 
@@ -237,11 +259,31 @@
             this.Endtotal.HeaderText = "Total";
             this.Endtotal.Name = "Endtotal";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(402, 171);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Price";
+            // 
+            // pricetxt
+            // 
+            this.pricetxt.Location = new System.Drawing.Point(439, 169);
+            this.pricetxt.Name = "pricetxt";
+            this.pricetxt.Size = new System.Drawing.Size(105, 20);
+            this.pricetxt.TabIndex = 23;
+            this.pricetxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(754, 480);
+            this.ClientSize = new System.Drawing.Size(898, 461);
+            this.Controls.Add(this.pricetxt);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.Exitbttn);
             this.Controls.Add(this.pcodetxt);
             this.Controls.Add(this.pnametxt);
             this.Controls.Add(this.dataGridView2);
@@ -287,11 +329,15 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TextBox pnametxt;
         private System.Windows.Forms.TextBox pcodetxt;
+        private System.Windows.Forms.Button Exitbttn;
         private System.Windows.Forms.DataGridViewButtonColumn Remove;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn product;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Endtotal;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox pricetxt;
     }
 }
 
