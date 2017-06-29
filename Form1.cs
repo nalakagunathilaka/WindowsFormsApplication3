@@ -24,7 +24,7 @@ namespace WindowsFormsApplication3
         private void Form1_Load(object sender, EventArgs e)
         {
             fillData();
-            Addbttn.Enabled = false;
+            //Addbttn.Enabled = false;
             RMVALLBttn.Enabled = false;
             dscnttxt.Text = "0";
         }
@@ -55,6 +55,17 @@ namespace WindowsFormsApplication3
 
         private void Addbttn_Click(object sender, EventArgs e)
         {
+            if  (quantitytxt.Text=="" || pnametxt.Text==""||pcodetxt.Text==""||pricetxt.Text==""||dscnttxt.Text=="")
+            {
+                MessageBox.Show("Quantity cannot be zero");
+                pcodetxt.Text = null;
+                pnametxt.Text = null;
+                quantitytxt.Text = null;
+                MessageBox.Show("p");
+                return;
+
+            }
+            
             string selectedpname;
             string selectedprice;
             string total;
@@ -69,6 +80,16 @@ namespace WindowsFormsApplication3
             dataGridView1.Rows.Add(" ", selectedpcode, selectedpname, quantitytxt.Text, selectedprice, total );
             RMVALLBttn.Enabled = true;
             addPrice();
+
+            pnametxt.Text = null;
+            pcodetxt.Text = null;
+            quantitytxt.Text = null;
+            dscnttxt.Text = "0";
+            pricetxt.Text = null;
+            pcodetxt.Enabled = true;
+            pnametxt.Enabled = true;
+            //Addbttn.Enabled = false;
+            //RMVALLBttn.Enabled = false;
 
        
         }
@@ -91,7 +112,7 @@ namespace WindowsFormsApplication3
         }
 
         private void quantitytxt_TextChanged(object sender, EventArgs e)
-        {           
+        {
         }
     
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -112,6 +133,8 @@ namespace WindowsFormsApplication3
                 DataView dv = new DataView(dt);
                 dv.RowFilter = string.Format("name LIKE '{0}%'", pnametxt.Text);
                 dataGridView2.DataSource = dv;
+
+                
        
         }
 
@@ -121,6 +144,8 @@ namespace WindowsFormsApplication3
                 DataView dv = new DataView(dt);
                 dv.RowFilter = string.Format("CONVERT(`product_code`, 'System.String') LIKE '{0}%'", pcodetxt.Text);
                 dataGridView2.DataSource = dv;
+
+                
         }
 
         private void pnametxt_KeyPress(object sender, KeyPressEventArgs e)
@@ -134,19 +159,6 @@ namespace WindowsFormsApplication3
             pnametxt.Enabled = false;
         }
 
-        private void CLRBttn_Click(object sender, EventArgs e)
-        {
-            pnametxt.Text = null;
-            pcodetxt.Text = null;
-            quantitytxt.Text = null;
-            dscnttxt.Text = null;
-            pricetxt.Text = null;
-            pcodetxt.Enabled = true;
-            pnametxt.Enabled = true;
-            Addbttn.Enabled = false;
-            //RMVALLBttn.Enabled = false;
-                
-        }
 
         private void RMVALLBttn_Click(object sender, EventArgs e)
         {
@@ -156,21 +168,6 @@ namespace WindowsFormsApplication3
 
         private void dscnttxt_TextChanged(object sender, EventArgs e)
         {
-            
-            if (quantitytxt.Text == "0" && quantitytxt.Text == null && pnametxt.Text == null && pcodetxt.Text == null && dscnttxt.Text == null)
-            {
-                Addbttn.Enabled = false;
-                MessageBox.Show("Quantity cannot be zero");
-                pcodetxt.Text = null;
-                pnametxt.Text = null;
-                quantitytxt.Text = null;
-                MessageBox.Show("p");
-
-            }
-            else
-            {
-                Addbttn.Enabled = true;
-            }
         }
 
         private void MASBttn_Click(object sender, EventArgs e)
@@ -318,6 +315,10 @@ namespace WindowsFormsApplication3
             }
 
             
+        }
+
+        private void pricetxt_TextChanged(object sender, EventArgs e)
+        {   
         }
      
     }

@@ -30,6 +30,12 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.pcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Endtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Addbttn = new System.Windows.Forms.Button();
             this.MASBttn = new System.Windows.Forms.Button();
             this.Totaltxt = new System.Windows.Forms.TextBox();
@@ -39,18 +45,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Discount = new System.Windows.Forms.Label();
             this.dscnttxt = new System.Windows.Forms.TextBox();
-            this.CLRBttn = new System.Windows.Forms.Button();
             this.RMVALLBttn = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.pnametxt = new System.Windows.Forms.TextBox();
             this.pcodetxt = new System.Windows.Forms.TextBox();
             this.Exitbttn = new System.Windows.Forms.Button();
-            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.pcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Endtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.pricetxt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -83,6 +82,38 @@
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
+            // 
+            // Remove
+            // 
+            this.Remove.HeaderText = "Remove";
+            this.Remove.Name = "Remove";
+            this.Remove.Text = "Remove";
+            this.Remove.UseColumnTextForButtonValue = true;
+            // 
+            // pcode
+            // 
+            this.pcode.HeaderText = "prodcut_code";
+            this.pcode.Name = "pcode";
+            // 
+            // product
+            // 
+            this.product.HeaderText = "Product";
+            this.product.Name = "product";
+            // 
+            // quantity
+            // 
+            this.quantity.HeaderText = "Quantity";
+            this.quantity.Name = "quantity";
+            // 
+            // price
+            // 
+            this.price.HeaderText = "Price";
+            this.price.Name = "price";
+            // 
+            // Endtotal
+            // 
+            this.Endtotal.HeaderText = "Total";
+            this.Endtotal.Name = "Endtotal";
             // 
             // Addbttn
             // 
@@ -167,16 +198,6 @@
             this.dscnttxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.dscnttxt.TextChanged += new System.EventHandler(this.dscnttxt_TextChanged);
             // 
-            // CLRBttn
-            // 
-            this.CLRBttn.Location = new System.Drawing.Point(181, 206);
-            this.CLRBttn.Name = "CLRBttn";
-            this.CLRBttn.Size = new System.Drawing.Size(99, 33);
-            this.CLRBttn.TabIndex = 16;
-            this.CLRBttn.Text = "CLEAR";
-            this.CLRBttn.UseVisualStyleBackColor = true;
-            this.CLRBttn.Click += new System.EventHandler(this.CLRBttn_Click);
-            // 
             // RMVALLBttn
             // 
             this.RMVALLBttn.Location = new System.Drawing.Point(804, 258);
@@ -227,38 +248,6 @@
             this.Exitbttn.UseVisualStyleBackColor = true;
             this.Exitbttn.Click += new System.EventHandler(this.Exitbttn_Click);
             // 
-            // Remove
-            // 
-            this.Remove.HeaderText = "Remove";
-            this.Remove.Name = "Remove";
-            this.Remove.Text = "Remove";
-            this.Remove.UseColumnTextForButtonValue = true;
-            // 
-            // pcode
-            // 
-            this.pcode.HeaderText = "prodcut_code";
-            this.pcode.Name = "pcode";
-            // 
-            // product
-            // 
-            this.product.HeaderText = "Product";
-            this.product.Name = "product";
-            // 
-            // quantity
-            // 
-            this.quantity.HeaderText = "Quantity";
-            this.quantity.Name = "quantity";
-            // 
-            // price
-            // 
-            this.price.HeaderText = "Price";
-            this.price.Name = "price";
-            // 
-            // Endtotal
-            // 
-            this.Endtotal.HeaderText = "Total";
-            this.Endtotal.Name = "Endtotal";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -275,6 +264,7 @@
             this.pricetxt.Size = new System.Drawing.Size(105, 20);
             this.pricetxt.TabIndex = 23;
             this.pricetxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.pricetxt.TextChanged += new System.EventHandler(this.pricetxt_TextChanged);
             // 
             // Form1
             // 
@@ -288,7 +278,6 @@
             this.Controls.Add(this.pnametxt);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.RMVALLBttn);
-            this.Controls.Add(this.CLRBttn);
             this.Controls.Add(this.dscnttxt);
             this.Controls.Add(this.Discount);
             this.Controls.Add(this.label3);
@@ -324,7 +313,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label Discount;
         private System.Windows.Forms.TextBox dscnttxt;
-        private System.Windows.Forms.Button CLRBttn;
         private System.Windows.Forms.Button RMVALLBttn;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TextBox pnametxt;
