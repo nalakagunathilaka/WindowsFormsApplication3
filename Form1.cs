@@ -175,7 +175,7 @@ namespace WindowsFormsApplication3
 
         private void MASBttn_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridView1.Rows.Count - 1; ++i)
+            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
             {
                 string currentstock = "";
                 MySqlCommand cmd = connection.CreateCommand();
@@ -216,7 +216,7 @@ namespace WindowsFormsApplication3
                 }
             }
             string details = "";
-            for (int i = 0; i < dataGridView1.Rows.Count - 1; ++i)
+            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
             {
                 string product_code = "";
                 string product = "";
@@ -257,6 +257,42 @@ namespace WindowsFormsApplication3
                 connection.Close();
             }
             
+            Form2 frm = new Form2();
+            for (int i = 0; i < dataGridView1.RowCount-1; i++ )
+            {
+                frm.dataGridView3.Rows.Add();
+                for (int j = 2 ; j < 6 ; j++)
+                {
+                    frm.dataGridView3.Rows[i].Cells[j-2].Value = this.dataGridView1.Rows[i].Cells[j].Value;
+                    //MessageBox.Show(Convert.ToString(this.dataGridView1.Rows[i].Cells[j].Value));
+                }
+                
+            }
+
+            MySqlCommand cmd2 = connection.CreateCommand();
+            cmd2.CommandText = "SELECT * FROM sampleinventory.invoice WHERE invoice_number = (SELECT MAX(invoice_number) FROM sampleinventory.invoice)";
+            string invoice_num = "";
+            try
+            {
+                connection.Open();
+                MySqlDataReader myReader2 = cmd2.ExecuteReader();
+                while (myReader2.Read())
+                {
+                    invoice_num = Convert.ToString(Convert.ToInt32(myReader2.GetString("Invoice_number")));
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            frm.invcnumtxtx.Text = invoice_num;
+            frm.ttlbilltxt.Text = Totaltxt.Text;
+            frm.Show();
 
             Addbttn.Enabled = false;
         }
